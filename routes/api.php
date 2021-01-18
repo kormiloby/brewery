@@ -17,3 +17,7 @@ use App\Http\Controllers\BreweryController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('breweries', BreweryController::class)->except([
+    'create', 'store', 'edit', 'update', 'destroy'
+]);
